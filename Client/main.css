@@ -1,0 +1,28 @@
+#chat-output {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #aaaaaa;
+    overflow: auto;
+}
+#chat-input {
+    width: 400px;
+}
+.hidden {
+    display: none;
+}
+.chat-message {
+    display: block;
+}
+.chat-system {
+    font-style: italic;
+}
+.chat-error {
+    font-style: italic;
+    color: #aa0000;
+    font-weight: bold;
+}
+.link {
+    color: #0000dd;
+    text-decoration: underline;
+    cursor: pointer;
+}

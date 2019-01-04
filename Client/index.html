@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Graphite: Battle's Edge</title>
+        <link rel="stylesheet" href="main.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        Testing Graphite.<br>
+        <a id='signout' class='link hidden'>Sign Out</a>
+        <form id='signup' class='hidden'>
+            <input id='signup-name' placeholder='Desired Username'><br>
+            <input id='signup-pass' type='password' placeholder='Password'><br>
+            <input id='signup-pass-verify' type='password' placeholder='Confirm Password'><br>
+            <input type='submit' value='Sign Up'><br>
+            Already have an account? <a id='show-signin' class='link'>Sign in here.</a>
+        </form>
+        <form id='signin'>
+            <input id='signin-name' placeholder='Username'><br>
+            <input id='signin-pass' type='password' placeholder='Password'><br>
+            <input type='submit' value='Sign In'><br>
+            Don't have an account? <a id='show-signup' class='link'>Sign up here.</a>
+        </form>
+        <!-- TODO: Have a way to begin a fight, wait for matchup, and switch into fight room. -->
+        <div id='chat' class='hidden'>
+            <div id="chat-output"></div>
+            <input id="chat-input" type="text">
+        </div>
+    </body>
+</html>
