@@ -5,6 +5,7 @@ const io = require('socket.io')(server);
 const readline = require('readline');
 const shortid = require('shortid');
 const db = require('./Server/database');
+const util = require('./Server/util');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -40,7 +41,7 @@ console.out = (...data) => {
 
 // Socket
 const players = {};
-const fights = [];
+const fights = new Map();
 const chats = {
     'lobby': new rooms.Chat()
 };

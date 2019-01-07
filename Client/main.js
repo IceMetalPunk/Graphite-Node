@@ -8,6 +8,7 @@ let chatOutput, chatInput, chatDiv;
 let signupUsername, signupPass, signupForm, signupVerifyPass;
 let signinUsername, signinPass, signinForm, signoutLink;
 let accessToken = '', username = '';
+let fightId = undefined;
 
 function showError(message) {
     console.log(message);
@@ -114,6 +115,27 @@ socket.on('auth.signIn.error', err => {
     showError(err);
 });
 
+socket.on('fight.join.error', err => {
+    showError(err);
+});
+socket.on('fight.join.success', data => {
+    console.log(data);
+    fightId = data.fightId;
+});
+socket.on('fight.leave.success', data => {
+    fightId = undefined;
+    console.log(data);
+});
+socket.on('fight.leave.error', err => {
+    showError(err);
+});
+socket.on('fight.opponentLeft', data => {
+    console.log(data);
+});
+socket.on('fight.playerJoined', data => {
+    console.log(data);
+});
+
 function chatKey(event) {
     if (event.keyCode === 13) {
         socket.emit('chat.addMessage', {
@@ -150,6 +172,24 @@ function signIn(ev) {
 
 function signOut() {
     socket.emit('auth.signOut', accessToken);
+}
+function joinFight() {
+    if (fightId === undefined) {
+        socket.emit('fight.join.firstAvailable', {
+            token: accessToken
+        });
+    }
+    else {
+        showError(`You are already in a battle with ID ${fightId}!`);
+    }
+}
+function leaveFight() {
+    if (fightId !== undefined) {
+        socket.emit('fight.leave', {
+            token: accessToken,
+            fightId
+        });
+    }
 }
 
 function setup() {

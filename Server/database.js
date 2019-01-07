@@ -6,7 +6,7 @@ const DB_PATH = process.env.DB_PATH || 'localhost/graphite';
 const db = mongo(DB_PATH, ['users']);
 
 const authTokens = {};
-const TOKEN_EXP_TIME = 60 * 60 * 12;
+const TOKEN_EXP_TIME = 1000 * 60 * 60 * 12;
 
 const grantToken = function(username) {
     const existing = Object.keys(authTokens).find(key => {
