@@ -8,6 +8,7 @@ const Player = function(socket) {
     this.socket = socket;
     this.id = socket.id;
     this.chatRoom = '';
+    this.fightRoom = '';
 
     this.getUsername = () => this.socket.username;
 

@@ -121,6 +121,11 @@ const attachListeners = function(sock, chats, player) {
             sock.username = sock.id;
             if (player.chatRoom in chats) {
                 chats[player.chatRoom].leave(player);
+                player.chatRoom = '';
+            }
+            if (fights.has(player.fightRoom)) {
+                fights.get(player.fightRoom).leave(player);
+                player.fightRoom = '';
             }
             sock.emit('auth.signOut.success');
         }

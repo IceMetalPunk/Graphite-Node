@@ -56,6 +56,9 @@ io.on('connection', sock => {
         if (player.chatRoom in chats) {
             chats[player.chatRoom].leave(player);
         }
+        if (fights.has(player.fightRoom)) {
+            fights.get(player.fightRoom).leave(player);
+        }
         delete players[sock.id];
     });
     db.attachListeners(sock, chats, player);

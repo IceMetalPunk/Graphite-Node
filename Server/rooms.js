@@ -12,6 +12,7 @@ const Fight = function(id) {
     this.isPlayerHere = (player) => this.fighters.includes(player);
 
     this.join = (fighter) => {
+        fighter.fightRoom = this.getId();
         this.fighters.push(fighter);
         fighter.socket.emit('fight.join.success', {
             fightId
@@ -26,6 +27,7 @@ const Fight = function(id) {
     };
     
     this.leave = (fighter) => {
+        fighter.fightRoom = '';
         this.fighters = this.fighters.filter(f => f !== fighter);
         fighter.socket.emit('fight.leave.success', {
             fightId
