@@ -1,0 +1,17 @@
+.progress-bg {
+    background: linear-gradient(#eeeeee, #eeeeee), linear-gradient(#dddddd, #ffffff);
+    background-blend-mode: multiply;
+    border: 1px solid #000000;
+    height: 20px;
+}
+.progress-fg {
+    width: 0px;
+    height: 100%;
+    background: linear-gradient(#0000ff, #0000ff), linear-gradient(#ffffff, #444444);
+    background-blend-mode: multiply;
+    transition: 0.5s;
+    outline: 1px solid #000000;
+}
+.progress-label {
+    color: #000000;
+}
