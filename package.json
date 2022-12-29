@@ -4,7 +4,7 @@
   "description": "A game of graphs and combat.",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "html-entities": "^1.2.1",
     "mongojs": "^2.6.0",
     "shortid": "^2.2.14",
